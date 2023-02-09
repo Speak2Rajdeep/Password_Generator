@@ -1,14 +1,18 @@
 package com.example.passwordgenerator
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import com.example.passwordgenerator.activity.SignUpActivity
+import androidx.appcompat.app.AppCompatActivity
+import com.example.passwordgenerator.activity.LoginActivity
+
+/**
+ * Created by Rajdeep Sarkar on 09/02/2023
+ * */
 
 class MainActivity : AppCompatActivity() {
 
-    var isChecked: Boolean = true
+    private var isChecked: Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         Handler().postDelayed({
             if (isChecked) {
                 isChecked = false
-                val intent = Intent(this@MainActivity, SignUpActivity::class.java)
+                val intent = Intent(this@MainActivity, LoginActivity::class.java)
                 startActivity(intent)
                 finish()
             }

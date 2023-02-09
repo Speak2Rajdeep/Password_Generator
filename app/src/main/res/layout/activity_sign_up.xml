@@ -79,6 +79,7 @@
         android:drawableStart="@drawable/ic_lock"
         android:drawablePadding="16dp"
         android:ems="10"
+        android:maxLength="4"
         android:hint="@string/password"
         android:inputType="textPassword"
         android:padding="16dp"

@@ -5,7 +5,7 @@
     <string name="welcome_str">Welcome</string>
     <string name="to_str">To</string>-->
     <string name="password_generator_str">Password Generator</string>
-    <string name="app_name">LoginActivityTask</string>
+    <string name="app_name">Password Generator</string>
     <string name="welcome_to_android_str">Welcome To Android</string>
     <string name="welcome_str">Welcome</string>
     <string name="to_str">To</string>
@@ -24,6 +24,7 @@
     <string name="login_str">Login</string>
     <string name="signup_str">Set PIN</string>
     <string name="movetologin_str">Login</string>
+    <string name="movetosignup_str">Sign Up</string>
     <string name="login_page_heading_str">login page</string>
     <string name="signup_page_heading_str">Sign-Up Page</string>
     <string name="username_str">Auto Generated Username</string>
@@ -35,7 +36,8 @@
     <string name="loading_please_wait_str">Loading, Please Wait</string>
     <string name="top_icon">TOP ICON</string>
     <string name="email">Email</string>
-    <string name="password">Pin</string>
+    <string name="password">Set Your 4 Digit Pin Here</string>
+    <string name="loginPin">* * * *</string>
     <string name="login">LOGIN</string>
     <string name="forgot_password">FORGOT PASSWORD?</string>
     <string name="or">OR</string>
@@ -44,6 +46,7 @@
     <string name="new_user_register_now">New User? Register Now</string>
     <string name="already_have_an_account_str">Already Have an Account?</string>
     <string name="don_t_have_an_account_str">Don\'t have an Account?</string>
+    <string name="login_here_str">Login Here</string>
     <string name="create_one_for_free_str">Create one for FREE!!</string>
     <string name="name">Name</string>
     <string name="move_to_login_str">Move to LOGIN</string>
