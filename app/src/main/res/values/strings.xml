@@ -26,6 +26,8 @@
     <string name="movetologin_str">Login</string>
     <string name="movetosignup_str">Sign Up</string>
     <string name="generatepassword_str">Generate Password</string>
+    <string name="oldpassword_str">Previous Password</string>
+    <string name="newpassword_str">Current Password</string>
     <string name="login_page_heading_str">login page</string>
     <string name="signup_page_heading_str">Sign-Up Page</string>
     <string name="username_str">Auto Generated Username</string>
@@ -54,4 +56,6 @@
     <string name="heading_will_appear_here_str">Heading will appear here</string>
     <string name="id_will_appear_here_str" />
     <string name="title_will_appear_here_str">Title will Appear Here</string>
+   <string name="previous_password_str">Previous Password</string>
+   <string name="current_password_str">Current Password</string>
 </resources>
