@@ -1,9 +1,9 @@
 <resources>
  <!--   <string name="app_name">Password Generator</string>
-    &lt;!&ndash; TODO: Remove or change this placeholder text &ndash;&gt;
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="welcome_str">Welcome</string>
-    <string name="to_str">To</string>-->
+&lt;!&ndash; TODO: Remove or change this placeholder text &ndash;&gt;
+<string name="hello_blank_fragment">Hello blank fragment</string>
+<string name="welcome_str">Welcome</string>
+<string name="to_str">To</string>-->
     <string name="password_generator_str">Password Generator</string>
     <string name="app_name">Password Generator</string>
     <string name="welcome_to_android_str">Welcome To Android</string>
@@ -25,6 +25,7 @@
     <string name="signup_str">Set PIN</string>
     <string name="movetologin_str">Login</string>
     <string name="movetosignup_str">Sign Up</string>
+    <string name="generatepassword_str">Generate Password</string>
     <string name="login_page_heading_str">login page</string>
     <string name="signup_page_heading_str">Sign-Up Page</string>
     <string name="username_str">Auto Generated Username</string>

@@ -20,10 +20,7 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        val pin = binding.pinStr.text.toString()
         var signUpPin: String
-
         binding.loginBtn.setOnClickListener {
 
             if (binding.pinStr.text.trim().isEmpty()) {
@@ -41,9 +38,11 @@ class LoginActivity : AppCompatActivity() {
                         this@LoginActivity, "Please Enter Valid Pin ", Toast.LENGTH_SHORT
                     ).show()
                 } else {
-                    Toast.makeText(
+                    /*Toast.makeText(
                         this@LoginActivity, "Login Success", Toast.LENGTH_SHORT
-                    ).show()
+                    ).show()*/
+                    val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                    startActivity(intent)
                 }
             }
         }
