@@ -1,9 +1,10 @@
 package com.example.passwordgenerator.activity
 
-import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.security.crypto.EncryptedSharedPreferences
+import androidx.security.crypto.MasterKeys
 import com.example.passwordgenerator.databinding.ActivityHomeBinding
 
 /**
@@ -12,15 +13,22 @@ import com.example.passwordgenerator.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
+    private val masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC)
     lateinit var str3: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val sharedPreferences: SharedPreferences = this.getSharedPreferences(
-            "oldPasswordPreference", Context.MODE_PRIVATE
+        val sharedPreferences = EncryptedSharedPreferences.create(
+            "oldPasswordPreference",
+            masterKeyAlias,
+            applicationContext,
+            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
         )
+
         binding.oldPassword.text = sharedPreferences.getString("old_password", "").toString()
         binding.newPassword.text = sharedPreferences.getString("new_password", "").toString()
 
