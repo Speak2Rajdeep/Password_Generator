@@ -86,9 +86,13 @@ class HomeActivity : AppCompatActivity() {
                 3
             )
         var temp = ""
+        var con=0
         for (element in generatedPassword) {
-            val ch = element
+            var ch = element
+//            if(con==0 && !map.containsKey(ch))
+//                ch= ch.uppercaseChar()
             temp = if (map.containsKey(ch)) temp + map[ch] else temp + ch
+
         }
         generatedPassword = temp
         return generatedPassword
