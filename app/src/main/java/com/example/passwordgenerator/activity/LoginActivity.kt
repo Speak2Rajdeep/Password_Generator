@@ -5,8 +5,9 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.security.crypto.EncryptedSharedPreferences
-import androidx.security.crypto.MasterKeys
+import androidx.security.crypto.MasterKey
 import com.example.passwordgenerator.databinding.ActivityLoginBinding
+
 
 /**
  * Created by Rajdeep Sarkar on 09/02/2023
@@ -15,12 +16,15 @@ import com.example.passwordgenerator.databinding.ActivityLoginBinding
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
-    private val masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val masterKey = MasterKey.Builder(this)
+            .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
+            .build()
 
         var signUpPin: String
         binding.loginBtn.setOnClickListener {
@@ -31,9 +35,9 @@ class LoginActivity : AppCompatActivity() {
                 ).show()
             } else {
                 val sharedPreferences = EncryptedSharedPreferences.create(
-                    "signinPinPreference",
-                    masterKeyAlias,
                     applicationContext,
+                    "signinPinPreference",
+                    masterKey,
                     EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
                     EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
                 )

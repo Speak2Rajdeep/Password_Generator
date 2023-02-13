@@ -4,7 +4,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.security.crypto.EncryptedSharedPreferences
-import androidx.security.crypto.MasterKeys
+import androidx.security.crypto.MasterKey
 import com.example.passwordgenerator.databinding.ActivityHomeBinding
 import kotlin.math.floor
 
@@ -14,17 +14,20 @@ import kotlin.math.floor
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
-    private val masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val masterKey = MasterKey.Builder(this)
+            .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
+            .build()
+
         val sharedPreferences = EncryptedSharedPreferences.create(
-            "oldPasswordPreference",
-            masterKeyAlias,
             applicationContext,
+            "oldPasswordPreference",
+            masterKey,
             EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
             EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
         )
@@ -88,10 +91,9 @@ class HomeActivity : AppCompatActivity() {
         var temp = ""
 //        var con=0
         for (element in generatedPassword) {
-            val ch = element
-//            if(con==0 && !map.containsKey(ch))
+            //            if(con==0 && !map.containsKey(ch))
 //                ch= ch.uppercaseChar()
-            temp = if (map.containsKey(ch)) temp + map[ch] else temp + ch
+            temp = if (map.containsKey(element)) temp + map[element] else temp + element
         }
         generatedPassword = temp
         return generatedPassword
